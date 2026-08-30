@@ -1,2 +1,16 @@
-# GenAI_Knowledge_QA_Chatbot
-Production-oriented GenAI QA chatbot built with Python, FastAPI, LangChain, and LLMs with enterprise-grade testing, CI/CD, Docker, observability, security, and deployment practices.
+# GenAI Knowledge QA Chatbot
+
+An industry-ready Retrieval-Augmented Generation (RAG) based chatbot for answering questions from a knowledge base.
+
+## Project Status
+
+🚧 Under development
+
+## Tech Stack
+
+- Python
+- FastAPI
+- LangChain
+- Large Language Model (LLM)
+- Vector Database
+- RAG
