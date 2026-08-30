@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 import logging
 
 from fastapi import FastAPI, HTTPException
@@ -17,6 +18,14 @@ app = FastAPI(
     version="0.1.0",
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 llm_service = LLMService()
 
 
@@ -24,10 +33,12 @@ class QuestionRequest(BaseModel):
     question: str = Field(
         ...,
         min_length=1,
-        max_length=1000,
+        max_length=100,
         description="Question to ask the AI",
     )
-
+class QuestionResponse(BaseModel):
+    question: str
+    answer: str
 
 @app.get("/health")
 def health_check():
