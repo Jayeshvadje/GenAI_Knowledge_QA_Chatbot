@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,HTTPException
 from pydantic import BaseModel, Field
 
 from app.core.config import settings
@@ -28,9 +28,16 @@ def health_check():
 
 @app.post("/ask")
 def ask_question(request: QuestionRequest):
-    answer = llm_service.generate_answer(request.question)
+    try:
+        answer = llm_service.generate_answer(request.question)
 
-    return {
-        "question": request.question,
-        "answer": answer,
-    }
+        return {
+            "question": request.question,
+            "answer": answer,
+        }
+
+    except Exception:
+        raise HTTPException(
+            status_code=500,
+            detail="Unable to generate an answer. Please try again later.",
+        )
