@@ -5,6 +5,9 @@ class Settings(BaseSettings):
     app_name: str = "GenAI Knowledge QA Chatbot"
     environment: str = "development"
 
+    gemini_api_key: str
+    gemini_model: str = "gemini-3.5-flash"
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

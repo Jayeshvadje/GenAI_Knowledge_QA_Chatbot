@@ -5,6 +5,7 @@ uvicorn
 pydantic
 pydantic-settings
 python-dotenv
+google-genai
 
 pytest
 pytest-cov
