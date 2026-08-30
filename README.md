@@ -1,16 +1,22 @@
 # GenAI Knowledge QA Chatbot
 
-An industry-ready Retrieval-Augmented Generation (RAG) based chatbot for answering questions from a knowledge base.
+A simple GenAI question-answering application that uses an LLM to answer user queries.
 
 ## Project Status
 
 🚧 Under development
 
-## Tech Stack
+## How It Works
 
-- Python
-- FastAPI
-- LangChain
-- Large Language Model (LLM)
-- Vector Database
-- RAG
+The application accepts a user's question through a FastAPI API and sends it to an LLM to generate an answer.
+
+```text
+User Question
+      ↓
+   FastAPI
+      ↓
+  LLM Service
+      ↓
+   LLM Answer
+      ↓
+     User
